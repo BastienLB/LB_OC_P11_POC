@@ -18,12 +18,12 @@ public class SpecialityService {
 
     public Iterable<Speciality> getSpecialities() { return specialityRepository.findAll(); }
 
-    public Iterable<Hospital> getHospitalsFromSpeciality(Long id) {
-        Optional<Speciality> speciality = specialityRepository.findById(id);
-
-        if (speciality.isPresent()) {
-            return speciality.get().getHospitals();
-        }
-        return null;
-    }
+//    public Iterable<Hospital> getHospitalsFromSpeciality(Long id) {
+//        Optional<Speciality> speciality = specialityRepository.findById(id);
+//
+//        if (speciality.isPresent()) {
+//            return speciality.get().getHospitals();
+//        }
+//        return null;
+//    }
 }

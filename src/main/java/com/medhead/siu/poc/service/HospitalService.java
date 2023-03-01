@@ -19,8 +19,4 @@ public class HospitalService {
     public Iterable<Hospital> getHospitals() { return hospitalRepository.findAll(); }
 
     public Optional<Hospital> getHospitalById(Long hospitalId) { return hospitalRepository.findById(hospitalId); }
-
-//    public Hospital getNearestHospital(Float latitude, Float longitude) {
-//
-//    }
 }

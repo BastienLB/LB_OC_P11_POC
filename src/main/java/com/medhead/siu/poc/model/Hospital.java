@@ -17,9 +17,9 @@ public class Hospital {
 
     private String name;
 
-    private String latitude;
+    private Double latitude;
 
-    private String longitude;
+    private Double longitude;
 
     @Column(name = "available_beds")
     private Integer availableBeds;
