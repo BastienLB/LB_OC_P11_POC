@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-poc-siu-development
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: node28791-env-6815870.rag-cloud.hosteur.com
+    http:
+      paths:
+      - path: /dev-poc-siu(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-poc-siu-development
+            port:
+              number: 9000

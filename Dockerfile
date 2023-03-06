@@ -7,7 +7,7 @@ WORKDIR /app
 EXPOSE 80
 
 RUN rm -rf target/*; \
-    mvn package -Dmaven.test.skip; \
+    mvn clean package -Dmaven.test.skip; \
     mkdir logs
 
 CMD java -jar /app/target/poc-0.0.1-SNAPSHOT.jar > /app/logs/logs.txt
