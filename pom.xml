@@ -15,6 +15,7 @@
 	<description>Preuve de concept du système d&apos;intervention d&apos;urgence</description>
 	<properties>
 		<java.version>19</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
