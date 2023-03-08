@@ -36,6 +36,10 @@ public class HospitalController {
 
     private KDTree<Long, Object> kdTree = new KDTree<>();
 
+    @GetMapping("/")
+    public String helloWorld() {
+        return "Hello world";
+    }
 
     /**
      * For testing purpose only
