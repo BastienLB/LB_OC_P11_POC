@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
       - name: poc-siu-development-pod
-        image: registry.gurdil.fr:4443/poc-siu:v0.01-amd64
+        image: registry.gurdil.fr:4443/poc-siu-dev:latest
         ports:
         - containerPort: 9000
