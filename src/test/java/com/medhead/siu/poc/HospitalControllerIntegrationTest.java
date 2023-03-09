@@ -43,7 +43,7 @@ public class HospitalControllerIntegrationTest {
         MvcResult result = mockMvc.perform(get("/hospitals"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name", is("Walton Community Hospital - Virgin Care Services Ltd")))
-                .andExpect(jsonPath("$[4].id", is(6)))
+                .andExpect(jsonPath("$[4].id", is(5)))
                 .andReturn();
 
         String content = result.getResponse().getContentAsString();
