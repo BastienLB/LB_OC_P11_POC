@@ -38,7 +38,7 @@ public class HospitalController {
 
     @GetMapping("/")
     public String helloWorld() {
-        return "Hello world :) - Yet Another test";
+        return "Hello world :) - Yet Aaaaaaaanother test";
     }
 
     /**
