@@ -9,10 +9,11 @@ export const options = {
     scenarios: {
         my_scenario1: {
             executor: 'constant-arrival-rate',
-            duration: '3m',                    // total duration
+            duration: '5m',                    // total duration
             preAllocatedVUs: 50,                // to allocate runtime resources
+            maxVUs: 8000,
 
-            rate: 50,                           // number of constant iterations given `timeUnit`
+            rate: 8000,                           // number of constant iterations given `timeUnit`
             timeUnit: '1s',
         },
     },
