@@ -18,5 +18,8 @@ export const options = {
 };
 
 export default function () {
-    http.get('http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/hospitals/51.437195/-2.847193');
+    const res = http.get('http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/hospitals/51.437195/-2.847193');
+    check(res, {
+        'is status 200': (r) => r.status === 200,
+    });
 }
