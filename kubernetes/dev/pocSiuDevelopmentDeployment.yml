@@ -29,11 +29,17 @@ spec:
         image: registry.gurdil.fr:4443/poc-siu-dev:latest
         ports:
         - containerPort: 9000
+      resources:
+        limits:
+          cpu: 500m
+        requests:
+          cpu: 200m
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: poc-siu-development-autoscaler
+  namespace: poc-siu-development
+  name: deployment.apps/poc-siu-development
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
