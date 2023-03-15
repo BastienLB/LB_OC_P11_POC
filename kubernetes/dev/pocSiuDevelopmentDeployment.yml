@@ -41,7 +41,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   namespace: poc-siu-development
-  name: deployment.apps/poc-siu-development
+  name: poc-siu-development
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
