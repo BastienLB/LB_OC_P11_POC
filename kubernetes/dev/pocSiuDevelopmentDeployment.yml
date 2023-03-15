@@ -29,11 +29,6 @@ spec:
         image: registry.gurdil.fr:4443/poc-siu-dev:latest
         ports:
         - containerPort: 9000
-          resource:
-            name: cpu
-            target:
-              type: Utilization
-              averageUtilization: 60
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
