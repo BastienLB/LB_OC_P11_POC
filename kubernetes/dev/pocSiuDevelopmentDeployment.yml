@@ -31,11 +31,11 @@ spec:
         - containerPort: 9000
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "1.0"
           limits:
-            memory: "256Mi"
-            cpu: "1000m"
+            memory: "1024Mi"
+            cpu: "2.0"
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
