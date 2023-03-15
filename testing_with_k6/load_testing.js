@@ -13,16 +13,9 @@ export const options = {
             executor: 'ramping-vus',
             startVUs: 0,
             stages: [
-                { duration: '1m', target: 1000 },
-                { duration: '1m', target: 2000 },
-                { duration: '1m', target: 3000 },
-                { duration: '1m', target: 4000 },
-                { duration: '1m', target: 5000 },
-                { duration: '1m', target: 6000 },
-                { duration: '1m', target: 7000 },
-                { duration: '1m', target: 8000 },
+                { duration: '8m', target: 8000 },
                 { duration: '30s', target: 8000 },
-                { duration: '10s', target: 0 },
+                { duration: '30s', target: 0 },
             ],
             gracefulRampDown: '0s',
         },
@@ -36,6 +29,6 @@ export default function () {
       'is status 200': (r) => r.status === 200,
     });
     // Virtual User make 4 request per second
-    sleep(0.5);
+    sleep(1);
 }
 
