@@ -48,7 +48,7 @@ spec:
     kind: Deployment
     name: poc-siu-development
   minReplicas: 5
-  maxReplicas: 100
+  maxReplicas: 500
   metrics:
     - type: Resource
       resource:
