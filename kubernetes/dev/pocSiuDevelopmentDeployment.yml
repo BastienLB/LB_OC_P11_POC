@@ -31,11 +31,11 @@ spec:
         - containerPort: 9000
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
             memory: "128Mi"
             cpu: "500m"
+          limits:
+            memory: "256Mi"
+            cpu: "1000m"
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -47,8 +47,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: poc-siu-development
-  minReplicas: 1
-  maxReplicas: 30
+  minReplicas: 5
+  maxReplicas: 100
   metrics:
     - type: Resource
       resource:
