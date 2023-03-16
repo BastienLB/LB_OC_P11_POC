@@ -10,12 +10,12 @@ count_offline_containers(){
     echo "$counter"
 }
 
+echo "Sending a request to shut down at least one container"
 curl http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/stop-spring
 
-restarted=false
-
-
+echo "Check every second if a container has been shut down"
 # Check every second for 30 seconds if a container has been stopped
+restarted=false
 for i in {1..30}
 do
   count="$(count_offline_containers)"
@@ -29,13 +29,14 @@ if [ $restarted == false ]
 then
   exit 1
 fi
-
+echo "At least one container has shut down"
+echo "Waiting 4 minutes to let time for pods to restart"
 sleep 240
 
+echo "Verifying if all pods are up and running"
 count="$(count_offline_containers)"
-
-
 if [ "$count" -gt 0 ]
 then
     exit 1
 fi
+echo "SUCCESS"
