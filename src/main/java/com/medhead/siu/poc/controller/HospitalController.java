@@ -52,11 +52,8 @@ public class HospitalController {
     /**
      * Test function to terminate the app and verify pod recreation
      */
-    @GetMapping("/exit")
-    public String exit() {
-        System.exit(1);
-        return "Killing the service";
-    }
+    @GetMapping("/stop-spring")
+    public void exit() { System.exit(1); }
 
 
     /**
