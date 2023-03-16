@@ -12,24 +12,30 @@ count_offline_containers(){
 
 curl http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/stop-spring
 
-sleep 15
+restarted=false
 
-first_count="$(count_offline_containers)"
 
-if [ "$first_count" -lt 1 ]
+# Check every second for 30 seconds if a container has been stopped
+for i in {1..30}
+do
+  count="$(count_offline_containers)"
+  if [ "$count" -lt 1 ]
+  then
+      restarted=true
+  fi
+done
+
+if [ $restarted == false ]
 then
-    exit 22
+  exit 1
 fi
 
-sleep 300
+sleep 240
+
+count="$(count_offline_containers)"
 
 
-second_count="$(count_offline_containers)"
-
-echo "first_count" $first_count
-echo "Second count" $second_count
-
-if [ "$second_count" -lt "$first_count" ]
+if [ "$count" -gt 0 ]
 then
-    exit 32
+    exit 1
 fi
