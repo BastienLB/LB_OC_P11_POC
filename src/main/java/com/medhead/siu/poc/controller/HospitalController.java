@@ -38,7 +38,7 @@ public class HospitalController {
 
     @GetMapping("/")
     public String helloWorld() {
-        return "Hello world !!!!";
+        return "Hello world !";
     }
 
     /**
@@ -53,7 +53,7 @@ public class HospitalController {
      * Test function to terminate the app and verify pod recreation
      */
     @GetMapping("/stop-spring")
-    public String exit() { return "toto"; }
+    public void exit() { System.exit(1); }
 
 
     /**
