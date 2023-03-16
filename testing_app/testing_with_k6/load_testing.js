@@ -31,4 +31,3 @@ export default function () {
     // Virtual User make 4 request per second
     sleep(1);
 }
-
