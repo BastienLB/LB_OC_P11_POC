@@ -21,5 +21,3 @@ buildNumber.properties
 */.DS_Store
 src/main/.DS_Store
 
-kubernetes
-kubernetes/*
