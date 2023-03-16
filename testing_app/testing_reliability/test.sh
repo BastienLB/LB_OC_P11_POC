@@ -12,6 +12,7 @@ count_offline_containers(){
 
 curl http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/stop-spring
 
+sleep 15
 
 first_count="$(count_offline_containers)"
 
