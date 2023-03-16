@@ -42,6 +42,21 @@ public class HospitalController {
     }
 
     /**
+     * Test function to test app reliability on exception
+     * @throws Exception
+     */
+    @GetMapping("/exception")
+    public void exception() throws Exception { throw new Exception("killed"); }
+
+
+    /**
+     * Test function to terminate the app and verify pod recreation
+     */
+    @GetMapping("/exit")
+    public void exit() { System.exit(1); }
+
+
+    /**
      * For testing purpose only
      * Will refresh the KdTree using test data
      */
