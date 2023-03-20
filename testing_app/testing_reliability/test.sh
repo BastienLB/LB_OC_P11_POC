@@ -23,6 +23,7 @@ do
   then
       restarted=true
   fi
+  sleep 1
 done
 
 if [ $restarted == false ]
