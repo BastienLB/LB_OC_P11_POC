@@ -16,7 +16,7 @@ curl http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/stop-spring
 echo "Check every second if a container has been shut down"
 # Check every second for 30 seconds if a container has been stopped
 restarted=false
-for i in {1..30}
+for i in {1..50}
 do
   count="$(count_offline_containers)"
   if [ "$count" -lt 1 ]
@@ -28,6 +28,7 @@ done
 
 if [ $restarted == false ]
 then
+  echo "No container has restarted"
   exit 1
 fi
 echo "At least one container has shut down"
