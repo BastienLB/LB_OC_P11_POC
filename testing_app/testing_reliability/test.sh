@@ -31,7 +31,7 @@ restarted=false
 for i in {1..50}
 do
   count="$(count_offline_containers)"
-  if [ "$count" -lt 1 ]
+  if [ "$count" -ge 1 ]
   then
       restarted=true
   fi
