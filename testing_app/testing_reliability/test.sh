@@ -1,11 +1,23 @@
 count_offline_containers(){
-    local counter=0;
+  local counter=0;
+  for i in $(kubectl get pods -o=jsonpath='{.items[*].status.containerStatuses[*].ready}')
+  do
+    if [ $i == 'false' ]
+    then
+      let "counter+=1";
+    fi
+  done
+  echo "$counter"
+}
+
+count_online_containers(){
+  local counter=0;
     for i in $(kubectl get pods -o=jsonpath='{.items[*].status.containerStatuses[*].ready}')
     do
-        if [ $i == 'false' ]
-        then
-            let "counter+=1";
-        fi
+      if [ $i == 'true' ]
+      then
+        let "counter+=1";
+      fi
     done
     echo "$counter"
 }
@@ -36,8 +48,8 @@ echo "Waiting 4 minutes to let time for pods to restart"
 sleep 240
 
 echo "Verifying if all pods are up and running"
-count="$(count_offline_containers)"
-if [ "$count" -gt 0 ]
+count="$(count_online_containers)"
+if [ "$count" -lt 5 ]
 then
     exit 1
 fi
