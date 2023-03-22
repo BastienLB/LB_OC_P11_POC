@@ -57,7 +57,8 @@ public class HospitalControllerIntegrationTest {
     public void get_nearestHospital_fromGivenCoordinates() throws Exception {
         mockMvc.perform(get("/hospitals/51.379997/-0.406041"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1)));
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.availableBeds", is(8)));
     }
 
     @Test

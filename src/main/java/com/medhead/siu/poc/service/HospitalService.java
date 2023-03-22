@@ -19,4 +19,6 @@ public class HospitalService {
     public Iterable<Hospital> getHospitals() { return hospitalRepository.findAll(); }
 
     public Optional<Hospital> getHospitalById(Long hospitalId) { return hospitalRepository.findById(hospitalId); }
+
+    public Hospital saveHospital(Hospital hospital) { return hospitalRepository.save(hospital); }
 }

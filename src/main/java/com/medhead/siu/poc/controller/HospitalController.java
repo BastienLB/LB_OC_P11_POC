@@ -10,6 +10,7 @@ import com.thegeekyasian.geoassist.kdtree.KDTreeObject;
 import com.thegeekyasian.geoassist.kdtree.geometry.Point;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Remove;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,6 +74,26 @@ public class HospitalController {
     @GetMapping("/hospitals")
     public Iterable<Hospital> getHospitals() { return hospitalService.getHospitals(); }
 
+    /**
+     * If can be find return the hospital corresponding to the requested ID
+     * @param id: Long - Hospital ID
+     * @return Hospital
+     */
+    @GetMapping("/hospitals/{id}")
+    public Hospital getHospitalById(@PathVariable("id") final Long id) {
+        try {
+            Optional<Hospital> hospitalToGet = hospitalService.getHospitalById(id);
+            if(hospitalToGet.isPresent()) {
+                return hospitalToGet.get();
+            }
+            throw new Exception("No Hospital has been found");
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, e.getMessage(), e
+            );
+        }
+    }
+
 
     /**
      * Generate the kd-tree which will be used to find the nearest hospital
@@ -135,6 +156,13 @@ public class HospitalController {
             if(hospital.getId() == null) {
                 throw new Exception("No Hospital has been found");
             }
+
+            // Remove one bed from hospital then return hospital
+            hospital.setAvailableBeds(hospital.getAvailableBeds()-1);
+            if(hospital.getAvailableBeds() == 0) {
+                generateKDTree();
+            }
+            hospitalService.saveHospital(hospital);
             return hospital;
 
         } catch (Exception e) {

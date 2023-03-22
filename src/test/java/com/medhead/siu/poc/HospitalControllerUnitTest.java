@@ -55,6 +55,10 @@ public class HospitalControllerUnitTest {
             Hospital hospital = hospitalsList.get(i-1);
             when(hospitalService.getHospitalById(Long.valueOf(i))).thenReturn(Optional.of(hospital));
         }
+        for(int i=1; i<=5; i++) {
+            Hospital hospital = hospitalsList.get(i-1);
+            when(hospitalService.saveHospital(hospital)).thenReturn(hospital);
+        }
 
         hospitalController = new HospitalController(hospitalService, specialityService, new CoordinatesHelper(), customProperties);
         hospitalController.refreshKdTree();
@@ -95,13 +99,16 @@ public class HospitalControllerUnitTest {
         Hospital result = hospitalController.getNearestHospital(51.437195, -2.847193);
 
         assertThat(result.getId()).isEqualTo(expectedResult.getId());
+
+        // Verify that the available beds are decremented by at least one
+        assertThat(result.getAvailableBeds()).isEqualTo(expectedResult.getAvailableBeds()-1);
     }
 
     @Test
     @DisplayName("System returns error when coordinates are not precise enough")
     public void get_errorWhenCoordinatesAreNotPreciseEnough() throws Exception {
         try {
-            System.out.println(hospitalController.getNearestHospital(51.4, -2.8));
+            hospitalController.getNearestHospital(51.4, -2.8);
             assert false;
         } catch (Exception e) {
             assertThat(e.getMessage()).isEqualTo("400 BAD_REQUEST \"Coordinates not precise enough\"");
@@ -112,7 +119,7 @@ public class HospitalControllerUnitTest {
     @DisplayName("System returns error when no hospital is found")
     public void get_errorWhenNoHospitalIsFound() throws Exception {
         try {
-            System.out.println(hospitalController.getNearestHospital(-70.53, +70.45));
+            hospitalController.getNearestHospital(-70.53, +70.45);
             assert false;
         } catch (Exception e) {
             assertThat(e.getMessage()).isEqualTo("400 BAD_REQUEST \"No Hospital has been found\"");
