@@ -23,6 +23,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequiredArgsConstructor
@@ -160,7 +161,8 @@ public class HospitalController {
             // Remove one bed from hospital then return hospital
             hospital.setAvailableBeds(hospital.getAvailableBeds()-1);
             if(hospital.getAvailableBeds() == 0) {
-                generateKDTree();
+                Random rand = new Random();
+                hospital.setAvailableBeds(rand.nextInt(1000));
             }
             hospitalService.saveHospital(hospital);
             return hospital;
