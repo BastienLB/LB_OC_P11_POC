@@ -115,7 +115,7 @@ INSERT INTO hospital(name, latitude, longitude, available_beds, address1, addres
 	('Walton Community Hospital - Virgin Care Services Ltd', 51.379997, -0.406042, 9, '', 'Rodney Road', '', 'Walton-on-Thames', 'Surrey', 'KT12 3LD', '01932 414205', ''),
 	('Woking Community Hospital (Virgin Care)', 51.315132, -0.556289, 1, '', 'Heathside Road', '', 'Woking', 'Surrey', 'GU22 7HS', '01483 715911', ''),
 	('North Somerset Community Partnership Cic HQ', 51.439693, -2.840069, 8, 'Castlewood', 'Tickenham Road', '', 'Clevedon', 'Avon', 'BS21 6AB', '', ''),
-	('North Somerset Community Hospital', 51.437195, -2.847193, 1, 'North Somerset Community Hospital', 'Old Street', '', 'Clevedon', 'Avon', 'BS21 6BS', '01275 872212', ''),
+	('North Somerset Community Hospital', 51.437195, -2.847193, 5, 'North Somerset Community Hospital', 'Old Street', '', 'Clevedon', 'Avon', 'BS21 6BS', '01275 872212', ''),
 	('Bridgewater Hospital', 53.459743, -2.245469, 10, '120 Princess Road', '', '', 'Manchester', 'Greater Manchester', 'M15 5AT', '0161 2270000', ''),
 	('Kneesworth House', 52.078121, -0.030604, 3, 'Old North Road', 'Bassingbourn', '', 'Royston', '', 'SG8 5JP', '01763 255 700', 'reception_kneesworthhouse@partnershipsincare.co.uk'),
 	('Stockton Hall Hospital', 53.995403, -1.002553, 5, 'Stockton Hall', 'The Village', 'Stockton On The Forest', 'York', 'North Yorkshire', 'YO32 9UN', '01904 400 500', 'info@priorygroup.com'),
