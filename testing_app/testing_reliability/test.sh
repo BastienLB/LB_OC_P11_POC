@@ -50,7 +50,7 @@ then
 fi
 
 echo "At least one container has shut down"
-echo "Waiting 4 minutes to let time for pods to restart"
+echo "Waiting 3 minutes to let time for pods to restart"
 sleep 180
 
 echo "Verifying container has restarted"
