@@ -8,7 +8,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: poc-siu-development
-  minReplicas: 50
+  minReplicas: 20
   maxReplicas: 500
   metrics:
     - type: Resource
