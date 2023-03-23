@@ -29,7 +29,7 @@ curl http://node28791-env-6815870.rag-cloud.hosteur.com/dev-poc-siu/stop-spring
 echo "Check every second if a container has been shut down"
 # Check every second for 30 seconds if a container has been stopped
 restarted=false
-for i in {1..50}
+for i in {1..30}
 do
   # Check if there's more offline containers after sending the test request
   # meaning at least one container has been shut down
@@ -51,7 +51,7 @@ fi
 
 echo "At least one container has shut down"
 echo "Waiting 4 minutes to let time for pods to restart"
-sleep 240
+sleep 180
 
 echo "Verifying container has restarted"
 online_containers="$(count_online_containers)"
