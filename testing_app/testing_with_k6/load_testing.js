@@ -14,7 +14,7 @@ export const options = {
             startVUs: 0,
             stages: [
                 { duration: '15m', target: 8000 },
-                { duration: '30s', target: 4000 },
+                { duration: '30s', target: 8000 },
                 { duration: '30s', target: 0 },
             ],
             gracefulRampDown: '0s',
@@ -28,6 +28,6 @@ export default function () {
     check(res, {
       'is status 200': (r) => r.status === 200,
     });
-    // Virtual User make 4 request per second
+    // Virtual User make 1 request per second
     sleep(1);
 }
