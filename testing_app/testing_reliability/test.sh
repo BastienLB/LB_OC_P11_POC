@@ -50,8 +50,8 @@ then
 fi
 
 echo "At least one container has shut down"
-echo "Waiting 3 minutes to let time for pods to restart"
-sleep 180
+echo "Waiting 5 minutes to let time for pods to restart"
+sleep 300
 
 echo "Verifying container has restarted"
 online_containers="$(count_online_containers)"
