@@ -40,7 +40,7 @@ public class HospitalController {
 
     @GetMapping("/")
     public String helloWorld() {
-        return "Hello Valentin !";
+        return "Hello world !";
     }
 
     /**
